@@ -1,0 +1,24 @@
+{
+  "model": {
+    "name": "IndicBERTv2-MLM-only",
+    "hub_repo": "neuronsbyisshu/indicbert-hi-ner-naamapadam",
+    "task": "Named Entity Recognition",
+    "dataset": "Naamapadam (ai4bharat)",
+    "training": "100k Hindi samples, silver projected labels",
+    "entity_types": ["PERSON", "ORGANIZATION", "LOCATION"],
+    "architecture": "Transformer token classification",
+    "languages": ["Hindi", "Bengali", "Tamil", "Telugu"]
+  },
+  "gold_test": [
+    {"language": "Hindi", "code": "hi", "setting": "in-language", "f1": 82.74, "ci_low": 80.66, "ci_high": 84.84, "n": 867},
+    {"language": "Bengali", "code": "bn", "setting": "zero-shot", "f1": 80.82, "ci_low": 77.92, "ci_high": 83.42, "n": 607},
+    {"language": "Tamil", "code": "ta", "setting": "zero-shot", "f1": 75.06, "ci_low": 72.35, "ci_high": 77.67, "n": 758},
+    {"language": "Telugu", "code": "te", "setting": "zero-shot", "f1": 85.31, "ci_low": 83.01, "ci_high": 87.47, "n": 847}
+  ],
+  "zero_shot_validation": [
+    {"language": "Hindi", "code": "hi", "setting": "in-language", "f1": 78.00},
+    {"language": "Bengali", "code": "bn", "setting": "zero-shot", "f1": 73.61},
+    {"language": "Tamil", "code": "ta", "setting": "zero-shot", "f1": 72.16},
+    {"language": "Telugu", "code": "te", "setting": "zero-shot", "f1": 74.08}
+  ]
+}
