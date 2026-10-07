@@ -1,3 +1,4 @@
+# torch is installed separately (see README): CPU wheel in Docker, any build locally
 fastapi>=0.115
 uvicorn[standard]>=0.30
 transformers>=4.44

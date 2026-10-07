@@ -1,5 +1,7 @@
 # Multilingual Indic NER
 
+![App screenshot](docs/screenshot.png)
+
 Named Entity Recognition for Indian languages — **IndicBERTv2** fine-tuned on the Hindi portion of [Naamapadam](https://huggingface.co/datasets/ai4bharat/naamapadam), with **zero-shot cross-lingual transfer** to Bengali, Tamil and Telugu.
 
 - Model: [neuronsbyisshu/indicbert-hi-ner-naamapadam](https://huggingface.co/neuronsbyisshu/indicbert-hi-ner-naamapadam)
@@ -18,7 +20,7 @@ Training used 100k **silver-standard** (projected) Hindi sentences; final evalua
 | Telugu | zero-shot | **85.31%** | 83.01–87.47 | 847 |
 
 Baseline: BiLSTM-CRF on the same 100k Hindi data — 74.06% entity-F1 (validation).
-The model scores **+4.7 F1 higher on gold test data than on silver validation** (82.74 vs 78.00), quantifying label noise in the projected silver annotations.
+The model achieves **82.74% F1 on the Hindi gold test set versus 78.00% on the silver validation set**, highlighting a substantial difference between evaluation on projected silver labels and manually annotated gold labels.
 
 ## Pipeline
 
@@ -34,6 +36,8 @@ pip install torch --index-url https://download.pytorch.org/whl/cpu
 pip install -r requirements.txt
 uvicorn app.main:app --host 127.0.0.1 --port 8000
 ```
+
+**Note on PyTorch:** `requirements.txt` intentionally excludes `torch`. It is installed separately so you can pick the right build for your machine — the CPU wheel (command above) keeps Docker images small; any other PyTorch build (e.g. CUDA) also works. Running only `pip install -r requirements.txt` will **not** install a complete runtime.
 
 Open http://localhost:8000 — UI, and http://localhost:8000/docs for the API.
 
